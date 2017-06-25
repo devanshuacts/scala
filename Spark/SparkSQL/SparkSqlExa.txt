@@ -1,0 +1,12 @@
+#open scala REPL with command :- spark-shell
+
+val sqlcontext = new org.apache.spark.sql.SQLContext(sc)				//creates a sql context
+sqlcontext.read.json("/home/devanshu/workspace/Spark/Employee.json"     //reads the json file
+dfs.show()															    //shows the context as a sql table created temporarily in memory
+dfs.printSchema()														//prints the schema of the table
+dfs.select("name").show()												//prints/shows the names in the column 'name'
+dfs.filter(dfs("age")>23).show()										//prints all records with age key_value > 23
+
+dfs.groupBy("age").count.show()											//groups by age
+
+
